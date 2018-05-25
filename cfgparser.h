@@ -15,7 +15,7 @@ class CfgParser {
 		 *  @brief CfgParser class constructor
 		 *  
 		 *  @param [filename] Name and location of the config file 
-		 *                    (defaultly) "./config.cfg"
+		 *                    (defaultly "./config.cfg")
 		 */
 		CfgParser(const std::wstring &filename = L"config.cfg");
 
@@ -25,6 +25,7 @@ class CfgParser {
 		 *  @param [createIfNotExistent] If true, a default config file will 
 		 *                               be created with keys and values set
 		 *                               with {@link setStandart} function.
+		 *                               (defaultly true)
 		 *  @see {@link setStandart}
 		 *  @returns True if loading was successful.
 		 */
@@ -42,11 +43,27 @@ class CfgParser {
 		bool create();
 
 		/**
-		 *  @brief 
+		 *  @brief Set the standart keys and values for creating new config.
+		 *
+		 *  @param standartConf Map with keys and values (both as std::wstring's).
+		 *                      (defaultly empty map)
 		 */
 		void setStandart(const std::map<std::wstring, std::wstring> &standartConf = std::map<std::wstring, std::wstring>());
 
+		/**
+		 *  @brief Get number value from config by key.
+		 * 
+		 *  @param key Key of the config value.
+		 *  @returns Number value of the key's value.
+		 */
 		double getNumber(const std::wstring &key);
+
+		/**
+		*  @brief Get string value from config by key.
+		*
+		*  @param key Key of the config value.
+		*  @returns String value of the key's value.
+		*/
 		std::wstring getString(const std::wstring &key);
 
 		// <----  S O O N  ---->
